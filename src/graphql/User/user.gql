@@ -1,0 +1,9 @@
+query{
+  allUsuarios{
+    edges{
+    	node{
+        name
+    	}
+    }
+  }
+}

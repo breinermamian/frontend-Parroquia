@@ -6,6 +6,7 @@ import {
   restartWebsockets,
 } from "vue-cli-plugin-apollo/graphql-client";
 
+
 // Install the vue plugin
 Vue.use(VueApollo);
 
@@ -15,6 +16,7 @@ const AUTH_TOKEN = "apollo-token";
 // Http endpoint
 //const httpEndpoint = "https://delivery-food-backend.herokuapp.com/graphql/"; //Ruta al endpoint actualizada
 const httpEndpoint = "http://localhost:8000/graphql/";
+
 
 // Config
 const defaultOptions = {

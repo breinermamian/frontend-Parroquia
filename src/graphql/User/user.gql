@@ -1,8 +1,10 @@
-query{
+query allUsuarios{
   allUsuarios{
     edges{
     	node{
         name
+        email
+        password
     	}
     }
   }

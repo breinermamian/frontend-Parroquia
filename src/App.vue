@@ -1,32 +1,18 @@
 <template>
-  <div id="app">
     <!--<img alt="Vue logo" src="./assets/logo.png">
     <helloWorld msg="Welcome "/>
     
+    <Login/>
     -->
-    <Register/>
-  </div>
+    <router-view/>
 </template>
 
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
-import Register from './components/Usuario/Register.vue' 
+//import Login from './components/Usuario/Login.vue' 
 export default {
   name: 'App',
   components: {
-    //HelloWorld
-    Register
+    //Login,
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

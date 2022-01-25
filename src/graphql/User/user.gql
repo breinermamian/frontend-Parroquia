@@ -2,9 +2,9 @@ query allUsuarios{
   allUsuarios{
     edges{
     	node{
-        name
-        email
-        password
+        nombre
+        contrasena
+        correo
     	}
     }
   }

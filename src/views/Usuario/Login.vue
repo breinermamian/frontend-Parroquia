@@ -1,47 +1,48 @@
+
 <template>
-    <div class="wrapper fadeInDown">
-      <ul align="centrum">
-        <img src="@/../images/parroquia.jpg" width="600" height="240" />
-      </ul>
+  <div class="wrapper fadeInDown">
+    <!--<ul align="centrum">
+      
+    </ul>-->
+    <div class="contenedor">
+      <img src="@/../images/parroquia.jpg" width="600" height="320" />
+    </div>
+
+    <div id="formContent">
       <h3>Gestión Parroquial Santisima Trinidad</h3>
-      <h3>Inicio de sesión</h3>
-      <div id="formContent">
-        <!-- Tabs Titles 
-
-        <div class="fadeIn first" >
-          <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
-          <img src="@/../images/parroquia.jpg" id="icon" alt="User Icon" align="centrum" />
-        </div>
-        -->
-
-        <!-- Login Form -->
-        <form v-on:submit.prevent="iniciarSesion">
+      <h4>Inicio de sesión</h4>
+      <form v-on:submit.prevent="iniciarSesion">
+        <input
+          type="text"
+          v-model="nombre"
+          id="login"
+          class="fadeIn second"
+          name="login"
+          placeholder="Ingrese su nombre de usuario"
+        />
+        <div class="form-field d-flex align-items-center">
+          <span class="fas fa-key"></span>
           <input
-            type="text"
-            v-model="email"
-            id="login"
+            type="password"
+            name="password"
+            id="pwd"
             class="fadeIn second"
-            name="login"
-            placeholder="Ingrese su email"
-          />
-          <input
-            type="text"
+            placeholder="Ingrese su contraseña"
             v-model="password"
-            id="password"
-            class="fadeIn third"
-            name="login"
-            placeholder="Ingresa su contraseña"
           />
-          <input type="submit" class="fadeIn fourth" value="Iniciar sesión" />
-          <a href="#">¿olvidaste tu contraseña?</a>
-        </form>
-
-        <!-- Remind Passowrd TODO-->
-        <div id="formFooter">
-          <a class="underlineHover" href="registrar">Registrarse</a>
         </div>
+        <span class="fa fa-fw fa-eye password-icon show-password"></span>
+
+        <input type="submit" class="fadeIn fourth" value="Iniciar sesión" />
+        <a type="submit" class="fadeIn fourth" href="#">¿olvidaste tu contraseña?</a>
+      </form>
+
+      <!-- Remind Passowrd TODO-->
+      <div id="formFooter">
+        <a class="underlineHover" href="registrar">Registrarse</a>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -51,26 +52,22 @@ export default {
   data() {
     return {
       allUsuarios: Object,
-      email: "",
+      nombre: "",
       password: "",
     };
   },
+
   methods: {
     iniciarSesion() {
-      console.log("Prueba");
-      console.log("Contraseña ", this.password);
-      console.log("email", this.email);
-      console.log("d", this.allUsuarios.edges);
-
       for (let index = 0; index < this.allUsuarios.edges.length; index++) {
-        console.log(".");
-
         const element = this.allUsuarios.edges[index].node;
-        console.log("UserE", element.email);
-        console.log("userPassw", element.password);
-        if (this.password == element.password && this.email == element.email) {
+        if (
+          this.password == element.contrasena &&
+          (this.nombre == element.nombre || this.nombre == element.correo)
+        ) {
           console.log("Ingreso a sistema");
           this.$router.push({ name: "parroquia" });
+          break;
         } else {
           console.log("NO ingreso a sistema");
         }
@@ -89,7 +86,19 @@ export default {
   },
 };
 </script>
+
 <style scoped>
+.contenedor {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+.password-icon {
+  float: right;
+  position: relative;
+  margin: -25px 10px 0 0;
+  cursor: pointer;
+}
 html {
   background-color: #56baed;
 }
@@ -105,7 +114,13 @@ a {
   text-decoration: none;
   font-weight: 400;
 }
-
+h3 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  margin: 8px 8px 8px 8px;
+  padding: 0%;
+}
 h2 {
   text-align: center;
   font-size: 16px;
@@ -127,15 +142,36 @@ h2 {
   min-height: 100%;
   padding: 20px;
 }
+.wrapper .form-field input {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
 
 #formContent {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
   background: #fff;
   padding: 30px;
-  width: 90%;
+  width: 80%;
   max-width: 450px;
   position: relative;
+  align-items: center;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
@@ -145,7 +181,7 @@ h2 {
 #formFooter {
   background-color: #f6f6f6;
   border-top: 1px solid #dce8f1;
-  padding: 25px;
+  padding: 15px;
   text-align: center;
   -webkit-border-radius: 0 0 10px 10px;
   border-radius: 0 0 10px 10px;

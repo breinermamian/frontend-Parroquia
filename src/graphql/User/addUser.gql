@@ -7,15 +7,15 @@ mutation createUsuario(
   ) {
   createUsuario(
     input: { 
-      name:$nombre
-      telephone:$telefono
-      email:$email
-      password:$contrasena
+      nombre:$nombre
+      telefono:$telefono
+      correo:$email
+      contrasena:$contrasena
       fechaNacimiento:$fechanac
   }) {
     usuario {
       id
-      name
+      nombre
     }
   }
 }

@@ -89,6 +89,7 @@ export default {
         })
         .then((response) => {
           console.log("Registro de Usuario:", response.data);
+          this.$router.push({ name: "login" });
         });
     },
   },

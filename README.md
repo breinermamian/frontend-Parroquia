@@ -1,4 +1,6 @@
 # parroquia
+##En Caso de error con Route
+npm install vue-router
 
 ## Project setup
 ```

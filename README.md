@@ -1,5 +1,5 @@
 # parroquia
-##En Caso de error con Route
+#En Caso de error con vue-Route:>>
 npm install vue-router
 
 ## Project setup

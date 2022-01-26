@@ -1,45 +1,50 @@
 
 <template>
   <div class="wrapper fadeInDown">
-    <!--<ul align="centrum">
-      
-    </ul>-->
-    <div class="contenedor">
-      <img src="@/../images/parroquia.jpg" width="600" height="320" />
-    </div>
-
-    <div id="formContent">
-      <h3>Gestión Parroquial Santisima Trinidad</h3>
-      <h4>Inicio de sesión</h4>
-      <form v-on:submit.prevent="iniciarSesion">
-        <input
-          type="text"
-          v-model="nombre"
-          id="login"
-          class="fadeIn second"
-          name="login"
-          placeholder="Ingrese su nombre de usuario"
-        />
-        <div class="form-field d-flex align-items-center">
-          <span class="fas fa-key"></span>
-          <input
-            type="password"
-            name="password"
-            id="pwd"
-            class="fadeIn second"
-            placeholder="Ingrese su contraseña"
-            v-model="password"
-          />
+    <div class="row">
+      <div class="col-md">
+        <div class="contenedor">
+          <img class="img" src="@/../images/parroquia.jpg" />
+          <button type="button" class="btn btn-primary">Primary</button>
         </div>
-        <span class="fa fa-fw fa-eye password-icon show-password"></span>
+      </div>
+      <div class="col-md">
+        <div id="formContent">
+          <h3>Gestión Parroquial Santisima Trinidad</h3>
+          <h4>Inicio de sesión</h4>
+          <form v-on:submit.prevent="iniciarSesion">
+            <input
+              type="text"
+              v-model="nombre"
+              id="login"
+              class="fadeIn second"
+              name="login"
+              placeholder="Ingrese su nombre de usuario"
+            />
+            <div class="form-field d-flex align-items-center">
+              <span class="fas fa-key"></span>
+              <input
+                type="password"
+                name="password"
+                id="pwd"
+                class="fadeIn second"
+                placeholder="Ingrese su contraseña"
+                v-model="password"
+              />
+            </div>
+            <span class="fa fa-fw fa-eye password-icon show-password"></span>
 
-        <input type="submit" class="fadeIn fourth" value="Iniciar sesión" />
-        <a type="submit" class="fadeIn fourth" href="#">¿olvidaste tu contraseña?</a>
-      </form>
+            <input type="submit" class="fadeIn fourth" value="Iniciar sesión" />
+            <a type="submit" class="fadeIn fourth" href="#"
+              >¿olvidaste tu contraseña?</a
+            >
+          </form>
 
-      <!-- Remind Passowrd TODO-->
-      <div id="formFooter">
-        <a class="underlineHover" href="registrar">Registrarse</a>
+          <!-- Remind Passowrd TODO-->
+          <div id="formFooter">
+            <a class="underlineHover" href="registrar">Registrarse</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -113,6 +118,11 @@ a {
   display: inline-block;
   text-decoration: none;
   font-weight: 400;
+}
+img {
+  width: 100;
+  height: 200px;
+  object-fit: cover;
 }
 h3 {
   text-align: center;
